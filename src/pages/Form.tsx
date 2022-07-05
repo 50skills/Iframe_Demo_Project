@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import './styles.css';
 
 function Form() {
-  const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
@@ -40,19 +39,6 @@ function Form() {
 
     // Find user login info
     const userData = database.find((user) => user.username === uname.value);
-
-    // Compare user info
-    if (userData) {
-      if (userData.password !== pass.value) {
-        // Invalid password
-        setErrorMessages({ name: 'pass', message: errors.pass });
-      } else {
-        setIsSubmitted(true);
-      }
-    } else {
-      // Username not found
-      setErrorMessages({ name: 'uname', message: errors.uname });
-    }
   };
 
   const renderForm = (

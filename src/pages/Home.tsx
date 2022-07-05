@@ -19,7 +19,7 @@ const Home = () => {
         <IframeResizer
           inPageLinks
           frameBorder={0}
-          src="http://localhost:3001/sampleco/en/1/apply?frame=1"
+          src="http://localhost:3011/form"
           style={{ width: '1px', minWidth: '100%' }}
           onMessage={(data) =>
             data.message == 'submitted' && setIsSubmitted(true)
