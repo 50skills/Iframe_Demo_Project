@@ -1,19 +1,9 @@
 import { useEffect, useState } from 'react';
 import './styles.css';
+import 'iframe-resizer/js/iframeResizer.contentWindow.js';
 
 function Form() {
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src =
-      'http://localhost:3011/node_modules/iframe-resizer/js/iframeResizer.contentWindow.js';
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
 
   const database = [
     {
@@ -26,11 +16,6 @@ function Form() {
     },
   ];
 
-  const errors = {
-    uname: 'invalid username',
-    pass: 'invalid password',
-  };
-
   const handleSubmit = (event: any) => {
     //Prevent page reload
     event.preventDefault();
@@ -39,6 +24,10 @@ function Form() {
 
     // Find user login info
     const userData = database.find((user) => user.username === uname.value);
+
+    if (userData) {
+      setIsSubmitted(true);
+    }
   };
 
   const renderForm = (

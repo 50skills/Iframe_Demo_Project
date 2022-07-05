@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Form from './pages/Form';
+import Home from './Home';
+import Form from './Form';
 
 function App() {
   return (
